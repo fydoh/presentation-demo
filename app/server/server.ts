@@ -8,7 +8,6 @@ const app = express();
 const ROOT = path.join(path.resolve(__dirname, '../..'));
 
 // Express
-// Engine points to Universal 
 app.set('views', __dirname);
 
 // Express
@@ -18,9 +17,6 @@ app.get('/', (req, res) => {
 
 // serve static files
 app.use(express.static(ROOT, { index: false }));
-
-// This allows me to render without using universal
-//app.use(express.static(__dirname + '/'));
 
 // server side data
 app.get('/cats', (req, res) => {
