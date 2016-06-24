@@ -55,9 +55,7 @@ function ngApp(req, res) {
             provide(REQUEST_URL, { useValue: url }),
             NODE_ROUTER_PROVIDERS,
             NODE_HTTP_PROVIDERS
-        ],
-        async: false,
-        preboot: true
+        ]
     });
 }
 
