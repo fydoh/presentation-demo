@@ -8,17 +8,24 @@ import {Http} from '@angular/http';
 export class AppComponent {
     name: string = 'David';
     vehicles = [];
+    fieldValue: string = 'testing field value';
 
     constructor(public http: Http) {
 
     }
 
     ngOnInit() {
-        this.http
-            .get('/vehicles')
-            .subscribe(res => {
-                this.vehicles = res.json();
-            });
+        
+        console.log("length", this.vehicles.length);
+
+        if (this.vehicles.length === 0) {
+            console.log('about to query vehicles');
+            this.http
+                .get('/vehicles')
+                .subscribe(res => {
+                    this.vehicles = res.json();
+                });
+        }
     }
 
     sayHello() {

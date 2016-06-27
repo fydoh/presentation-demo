@@ -1,19 +1,57 @@
+import 'angular2-universal/polyfills';
 
 // Express
 import * as path from 'path';
 import * as express from 'express';
+
+import { 
+    provide, 
+    expressEngine,
+    ORIGIN_URL, 
+    enableProdMode,
+
+    NODE_ROUTER_PROVIDERS,
+    NODE_HTTP_PROVIDERS,
+    REQUEST_URL,
+    BASE_URL
+} from 'angular2-universal';
+
+import { AppComponent } from '../client/app.component';
+enableProdMode();
 
 // Express
 const app = express();
 const ROOT = path.join(path.resolve(__dirname, '../..'));
 
 // Express
+app.engine('html', expressEngine);
 app.set('views', __dirname);
+app.set('view engine', 'html');
 
-// Express
-app.get('/', (req, res) => {
-    res.sendFile('index.html', {root: __dirname});
-});
+function ngApp(req, res) {
+    console.log("here");
+
+    // server side data
+    let baseUrl = '/';
+    let url = req.originalUrl || '/';
+
+    // server side data undre providers
+    // also BASE_URL
+    res.render('index', {
+        directives: [AppComponent],
+        platformProviders: [
+            provide(ORIGIN_URL, { useValue: 'http://localhost:3001' }),
+            provide(BASE_URL, {useValue: baseUrl})
+        ],
+        providers: [
+            provide(REQUEST_URL, {useValue: url}),
+            NODE_ROUTER_PROVIDERS,
+            NODE_HTTP_PROVIDERS
+        ],
+        async: true,
+        preboot: true
+    });
+}
 
 // serve static files
 app.use(express.static(ROOT, { index: false }));
@@ -71,6 +109,8 @@ app.get('/vehicles', (req, res) => {
 
     res.json(result);
 });
+
+app.use('/test', ngApp);
 
 // server
 app.listen(3001, () => {

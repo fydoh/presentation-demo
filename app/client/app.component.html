@@ -2,8 +2,10 @@
 <h2>{{name}}</h2>
 <button class="btn default" (click)="sayHello()">Client Changes</button>
 
+<input type="text" [(value)]="fieldValue">
+
 <ul *ngFor="let vehicle of vehicles">
-    <li>
-        <img [src]="vehicle.imageUrl" alt="">
+    <li>{{vehicle.title}}
+        <!--<img [src]="vehicle.imageUrl" alt="">-->
         </li>
 </ul>
