@@ -7,6 +7,10 @@
     <div class="row">
 
     <aside class="col-sm-2">
+        <div>
+            <input type="text" name="color" [(value)]="selectedColor" />
+            <button (click)="changeColor()" class="btn btn-default btn-xs">...</button>
+        </div>        
         <div class="options">
         <h6>Color</h6>
         <ul class="list-unstyled">
@@ -23,7 +27,7 @@
 			
           <div class="col-sm-3" *ngFor="let vehicle of vehicleRow">
             <div class="car-column clearfix">
-              <img src="car.jpg" alt="car" class="img-responsive">
+              <img [src]="vehicle.imageUrl" class="img-responsive">
               <div class="row car-info-wrap">
                 <div class="col-sm-6">
                   <span class="year-make">{{vehicle.title}}</span>

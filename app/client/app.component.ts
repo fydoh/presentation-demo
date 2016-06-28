@@ -8,7 +8,8 @@ import {Http} from '@angular/http';
 export class AppComponent {
     name: string = 'David';
     vehicles = [];
-
+    selectedColor: string = "";
+    
     constructor(public http: Http) {
 
     }
