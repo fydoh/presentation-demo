@@ -1,9 +1,44 @@
-<h1>My Universal App</h1>
+<!--<h1>My Universal App</h1>
 <h2>{{name}}</h2>
 <button class="btn default" (click)="sayHello()">Client Changes</button>
-<label for="name">Your Name</label> <input type="text" name="name" [(value)]="name" />
-<ul *ngFor="let vehicle of vehicles">
-    <li>
-        <img [src]="vehicle.imageUrl" alt="">
-        </li>
-</ul>
+<label for="name">Your Name</label> <input type="text" name="name" [(value)]="name" />-->
+
+<div class="container-fluid">
+    <div class="row">
+
+    <aside class="col-sm-2">
+        <div class="options">
+        <h6>Color</h6>
+        <ul class="list-unstyled">
+            <li><input id="white" type="checkbox" value="white"><label for="white">  White</label></li>
+            <li> <input id="silver" type="checkbox" value="silver"> <label for="silver"> Silver</label></li>
+            <li> <input id="black" type="checkbox" value="black"> <label for="black"> Black</label></li>
+            <li><input id="gray" type="checkbox" value="gray"> <label for="gray"> Gray</label></li>
+        </ul>
+        </div>
+    </aside>
+
+    <main class="col-sm-10">
+        <div class="row" *ngFor="let vehicleRow of vehicles">
+			
+          <div class="col-sm-3" *ngFor="let vehicle of vehicleRow">
+            <div class="car-column clearfix">
+              <img src="car.jpg" alt="car" class="img-responsive">
+              <div class="row car-info-wrap">
+                <div class="col-sm-6">
+                  <span class="year-make">{{vehicle.title}}</span>
+                  <span class="model">SRX</span>
+                  <span class="edition">LUXURY COLLECTION</span>
+                </div>
+                <div class="col-sm-6 text-right">
+                  <span class="miles">30K MILES</span>
+                  <span class="price">$20,000</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </main>
+
+    </div>
+</div>
