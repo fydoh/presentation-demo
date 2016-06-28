@@ -16,6 +16,15 @@ export class AppComponent {
 
     ngOnInit() {
         
+        // setTimeout(function() {
+        //     this.http
+        //         .get('/vehicles')
+        //         .subscribe(res => {
+        //             var result = res.json();
+        //             this.vehicles.push(...result);
+        //         });
+        // }, 1000);
+
         console.log("length", this.vehicles.length);
 
         if (this.vehicles.length === 0) {
@@ -23,9 +32,13 @@ export class AppComponent {
             this.http
                 .get('/vehicles')
                 .subscribe(res => {
-                    this.vehicles = res.json();
+                    var result = res.json();
+                    this.vehicles.push(...result);
                 });
+
         }
+
+        this.fieldValue = "ngOnInit";
     }
 
     sayHello() {

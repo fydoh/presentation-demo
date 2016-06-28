@@ -16,6 +16,8 @@ console.log("bootstrap");
 setTimeout(function() {bootstrap(AppComponent, [
   BROWSER_ROUTER_PROVIDERS,
   BROWSER_HTTP_PROVIDERS
-]).then(function() { alert("done"); }); }, 3000);
+]).then(function() {
+    console.log("done"); 
+}); }, 3000);
 
 

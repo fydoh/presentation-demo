@@ -49,7 +49,17 @@ function ngApp(req, res) {
             NODE_HTTP_PROVIDERS
         ],
         async: true,
-        preboot: true
+        preboot: {
+          appRoot: 'my-app', // we need to manually include the root
+
+          start:    true,
+          freeze:   'spinner',     // show spinner w button click & freeze page
+          replay:   'rerender',    // rerender replay strategy
+          buffer:   true,          // client app will write to hidden div until bootstrap complete
+          debug:    false,
+          uglify:   true,
+          presets:  ['keyPress', 'buttonPress', 'focus']
+        }
     });
 }
 
