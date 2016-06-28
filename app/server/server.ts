@@ -50,7 +50,6 @@ var vehicles = [
 // Vehicles Retrieval
 app.get('/vehicles', (req, res) => {
     let result = [];
-    console.log(req.query.color);
 
     if (req.query.color) {
         vehicles.forEach((vehicle) => {
