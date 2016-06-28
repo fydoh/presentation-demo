@@ -1,7 +1,7 @@
 <h1>My Universal App</h1>
 <h2>{{name}}</h2>
 <button class="btn default" (click)="sayHello()">Client Changes</button>
-
+<label for="name">Your Name</label> <input type="text" name="name" [(value)]="name" />
 <ul *ngFor="let vehicle of vehicles">
     <li>
         <img [src]="vehicle.imageUrl" alt="">

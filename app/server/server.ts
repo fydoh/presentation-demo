@@ -1,30 +1,22 @@
-
 // Express
 import * as path from 'path';
 import * as express from 'express';
-
-// Express
 const app = express();
 const ROOT = path.join(path.resolve(__dirname, '../..'));
 
-// Express
+// Views
 app.set('views', __dirname);
 
-// Express
-app.get('/', (req, res) => {
+// Route
+app.get('/search', (req, res) => {
     res.sendFile('index.html', {root: __dirname});
 });
 
 // serve static files
 app.use(express.static(ROOT, { index: false }));
 
-// server side data
-app.get('/cats', (req, res) => {
-    res.json({
-        data: 'cat data'
-    })
-});
 
+// Vehicles DB :D
 var vehicles = [
     {
         title: '2011 Toyota RAV4',
@@ -55,6 +47,7 @@ var vehicles = [
     }
 ];
 
+// Vehicles Retrieval
 app.get('/vehicles', (req, res) => {
     let result = [];
     console.log(req.query.color);
