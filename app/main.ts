@@ -7,9 +7,10 @@ import {AppComponent} from './client/app.component';
 console.log("bootstrap");
 
 setTimeout(function () {
-    document.getElementById("environment").innerText = "client"; 
     bootstrap(AppComponent, [HTTP_PROVIDERS]).then(function () { 
-        alert("done"); 
+        let environment = document.getElementById("environment"); 
+        environment.innerText = "Client";
+        environment.setAttribute('class', 'environment environment-client');
     }); 
 }, 3000);
 

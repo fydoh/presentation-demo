@@ -6,7 +6,6 @@ import {Http} from '@angular/http';
     templateUrl: 'app/client/app.component.html'
 })
 export class AppComponent {
-    name: string = 'David';
     vehicles = [];
     selectedColor: string = "";
     
