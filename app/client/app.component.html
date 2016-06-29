@@ -3,11 +3,13 @@
 
     <aside class="col-sm-2">
         <div>
-            <input type="text" name="color" [(value)]="selectedColor" />
+            <input type="text" name="color" [(ngModel)]="selectedColor" />
             <button (click)="changeColor()" class="btn btn-default btn-xs">...</button>
+            
         </div>        
         <div class="options">
         <h6>Color</h6>
+        <div>{{selectedColor}}</div>
         <ul class="list-unstyled">
             <li><input id="white" type="checkbox" value="white"><label for="white">  White</label></li>
             <li> <input id="silver" type="checkbox" value="silver"> <label for="silver"> Silver</label></li>

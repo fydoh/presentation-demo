@@ -14,14 +14,21 @@ export class AppComponent {
     }
 
     ngOnInit() {
+        this.getVehicles();
+    }
+
+    changeColor() {
+        this.getVehicles();
+    }
+
+    private getVehicles() {
+        let url = '/vehicles';
+        url += (this.selectedColor) ? '?color=' + this.selectedColor : '';
+        debugger;
         this.http
-            .get('/vehicles')
+            .get(url)
             .subscribe(res => {
                 this.vehicles = res.json();
             });
-    }
-
-    sayHello() {
-        this.name = "Hello from client";
     }
 }
