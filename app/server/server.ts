@@ -46,8 +46,7 @@ app.use('/search', (req, res) => {
         ],
         providers: [
             provide(REQUEST_URL, {useValue: url}),
-            NODE_ROUTER_PROVIDERS,
-            NODE_HTTP_PROVIDERS
+            NODE_ROUTER_PROVIDERS
         ]
     });
 });
