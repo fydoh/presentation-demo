@@ -1,6 +1,8 @@
 // Express
 import * as path from 'path';
 import * as express from 'express';
+
+let port = 3000;
 const app = express();
 const ROOT = path.join(path.resolve(__dirname, '../..'));
 
@@ -197,6 +199,6 @@ function createColumnsAndRows(vehiclesThatMatch) {
 
 
 // server
-app.listen(3001, () => {
-    console.log('Listening on http://localhost:3001');
+app.listen(port, () => {
+    console.log('Listening on http://localhost:' + port);
 });
