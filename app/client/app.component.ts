@@ -7,6 +7,7 @@ import {Http} from '@angular/http';
 })
 export class AppComponent {
     vehicles = [];
+    colors: string[] = ['White', 'Silver', 'Black', 'Gray'];
     selectedColor: string = "";
     
     constructor(public http: Http) {
@@ -17,14 +18,17 @@ export class AppComponent {
         this.getVehicles();
     }
 
-    changeColor() {
+    changeColor(color: string) {
+        if (color) {
+            this.selectedColor = color.toLowerCase();
+        }
+
         this.getVehicles();
     }
 
     private getVehicles() {
         let url = '/vehicles';
         url += (this.selectedColor) ? '?color=' + this.selectedColor : '';
-        debugger;
         this.http
             .get(url)
             .subscribe(res => {

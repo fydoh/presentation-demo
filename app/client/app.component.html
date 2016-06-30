@@ -9,12 +9,12 @@
         </div>        
         <div class="options">
         <h6>Color</h6>
-        <div>{{selectedColor}}</div>
         <ul class="list-unstyled">
-            <li><input id="white" type="checkbox" value="white"><label for="white">  White</label></li>
-            <li> <input id="silver" type="checkbox" value="silver"> <label for="silver"> Silver</label></li>
-            <li> <input id="black" type="checkbox" value="black"> <label for="black"> Black</label></li>
-            <li><input id="gray" type="checkbox" value="gray"> <label for="gray"> Gray</label></li>
+            <li *ngFor="let color of colors">
+              <div (click)="changeColor(color)">
+                <input [id]="color | lowercase" type="checkbox" [value]="color" /><label>  {{color}}</label>
+              </div>
+            </li>
         </ul>
         </div>
     </aside>
