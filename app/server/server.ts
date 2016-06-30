@@ -48,7 +48,9 @@ app.use('/search', (req, res) => {
             provide(REQUEST_URL, {useValue: url}),
             NODE_ROUTER_PROVIDERS,
             NODE_HTTP_PROVIDERS
-        ]
+        ],
+        async: true,
+        preboot: true
     });
 });
 
